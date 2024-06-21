@@ -1,0 +1,74 @@
+# JamAi Base Integration
+
+This document details the integration of JamAi and how you can customize it to suit your needs. If you haven't already, please read the high-level overview of Ai-Town's architecture [here](./ARCHITECTURE.md).
+
+You can find the JamAI integrated program flow [here](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=aitownagent.drawio#R7V1Zk9o6Fv4t80Dd5AHKO%2FDYoZtM5mbpezuz5KlLYAFO25bjpZf8%2BtFqbFkGQ5utIZVKsCzL0tHR0XcWHXfMUfD8MQbR4gtyod8xNPe5Y153DMPQ%2Bhb%2Bj5S8sBJdGw5YyTz2XF62LLjzfkNRkZdmnguTUsUUIT%2F1onLhFIUhnKalMhDH6KlcbYb88lsjMIeVgrsp8Kul%2F%2FXcdMFKB7a2LP8n9OYL8WZd43cCICrzgmQBXPRUKDJvOuYoRihlv4LnEfQJ9QRd2HPjmrt5x2IYpk0euLVGsw8%2F%2F%2Bp2k8h1v%2F34M%2Fsa%2Fe6arJVH4Gd8wLyz6YugAHQxQfglitMFmqMQ%2BDfL0g8xykIXktdo%2BGpZ5zNCES7UceFPmKYvfHZBliJctEgDn9%2BtDoWPLkFZPIUr%2Bi9YAsRzmK6ox4dFxlJ4ASfUR4gCmMYvuEIMfZB6j%2BXJB5yH5nm9JZnxD07pDaiuV6h%2Bh0eQVknv%2B5jPCYmfFl4K7yJAifGE11pDAj7COIXPK4cs1mqf8ylfqRa%2FfFpyvS5YeVHg%2BIG2IyLZJ86aRkPWtI6KNY0K1T%2BCAOKST6FXZdD9s6XuNORLZ1d82a9Q6Cs6BGfOUJjym4b2Kk61GnKqc1ScOjxx%2BdCU6oOjorpVofoMxaR7YLog75sTOhiOj0f0wfUe8c85%2BTldgJQOduITYQKfvSTFXRuLqrgvhdqViYwXKJhkyfqNcIFi7zdeGKBNEWSXRZChEkGOQgTp%2Bq5kkFOZhVEMQUpIK1EahC7%2Bd4TCmTfPYlLy99XHA8hxW5OIOLAPLMf1Kgo7LQEyaChABBceiQQZ1CEMSrLDIwxLPzTC0Ksg7DAQAxM1fvlf8eIHaaxni8vrZ944u3rhV%2B1BEzEXre2SfNK1nu44%2FdK843dxkdR4HfDmb5FHNj3RtmWVGcrRJEZhg%2BFPLXnlKo7BS6FaRCokK96jq98zblhf9HPJqqwH6qeX5MlNOXZ5WGg2S2Dakbk%2FJ%2F4rFkQVdZyWqG7Mxrp5VLJa9LtA%2BGskYF5CnsZaoceBBwqx0E1wr1BIkd22GK4VmV7mVdtQyHRdBdl2J9SrmO3EeNhsysP2cfFwFXC8VcL3j4vwVePyuKgrljWVES2B0wfS7EyWJ1WNkquQLeuPbcge2%2BiVpU9fhShte6%2FSp2pN%2FURFt0%2F4tUzse8%2BlfU3JJGWh9ytbKpK4XoLpTpV8%2FEb8vzfzYFwh%2BO7JLKMsJZEthYgf7orGRnWz%2FBtOIVlnZMklEaYdTA4hewp4HC%2FKV8miflNZNDwuWVS12o5K8oWJIQZpUhiDado7AFPLuuhQhVv2qouKzfJ0d89hQ44VLe6fYz%2FF%2Fb%2Bs6e3N7cQe%2FPnr8zS9%2BxUoHDEXuu%2BD7ifvET9RutuHIDMGkSmxb2m9vs0vfxRuLc1b5EJYt3KrWH7BrGLGOrNYu5OqpOLB5nRltwuL6TveWgnET9EDDCmgzCiWVHmRDr796lrTKIjd7b9V7fXHwUHkK426eSDXWhF1XAptzlAFdpbYGD5PIXQJjPS9wEuPzQ6m6yqGVhrCzJ1xdNUQdmDvhtbTLLssy23HXCPM6dUtjD1MFawAL%2FeJUot8QyENGqs3FXwht9b%2BimtvIamdBBUBWhGMrKsV34eipWFvaGvLP5JBd4BvF%2F%2BU39KShyUPbsuHw7tR22vtlQ%2FYwxU%2BmbbcKWbVUHH6e0pTw4RxXIYJs6rnnXo4WeOpMI8LrRoKG1HRIP0Qoief9rUSyCTwqxq47nXHd%2FqS9Vk3bRWIVZmf%2B7va881Td%2BAaTbVq87gcuEZVA7vOgqgju1eI1TN37P6RqLn98PqYc%2FDYHLOqA%2BShd8dAMmsokczSDh1oZ1YBvzLUa6%2BQ%2F1ABTWZTZ27rYb9bIWAZAA%2Bs1XhWqr8yxKg1OFs12V5DH1aDUuSo2AAGM49ev%2FuKyCCKHul%2FvD8GgddX7t2K1bvF1v3vBMbfJj%2FJqTlD88EE%2BmJnLjjbC%2BN3fmWIxnIjH4Md84ow33zyztAs5r0v%2FnhP6aFNwPRhTldtV3qKyFFSd%2Fk%2Ff4Qste4MBJ7%2FwmqPUJggH4%2BL1sPdAAEhPO%2FMCC846oDWvsIn%2BSZ7JEAhStis5S9I6GImzetW9Mxu%2BF4Iu4Km9NZQ3KIz3%2BWNkFtRzFpz8jeJyINKoIIowk%2BH6%2BjZMUx36k4BUDY%2BzWK%2FEPDAGhQv0TZ8j%2B0Mp66jfE%2B3G8NfGUzS1l42hUO9P1C%2B7Pbb3ff9DKpN6q0Y0CJNI1pvjP%2FqQ6OnO4PeQOs5WEZcOUMHI7IxiDz87yPm%2FTEGXPfC9zxmAqilPrr9Cei7aja1R7WvUQfUVNi6i5cKcOnKa492f4DpFEZ8%2BYEo8r0pF93jnwkK%2Fzhr2uC9jATedNOXCJ4%2BhVyQgnbp0%2BkXSkkMU16DPL2sbuGKV143RU9ht2N%2FoCrPfUjOINjXnf51seqo1I%2Bk3KT9odkbyT5b06hL51L9WJLWPfXoE59D4SGtdJtIlCk98FOqFGZ44yfDo9sonsLXz2J7k9eMklefjoCOpa4GLOPBCk6jNRh71fJWAJMEs%2BFq%2FoqRXzvElySFQS3jhixeb0Un8b5DQp5gfJ%2BkCIPGUk%2FxhX1dahK%2FLIIxSOmBskKzenlU4PmeunnL49I1rUznFEX3UXkeejp5K3tx%2F7peqK3iU1VIaORjBLdAPpbN5bwQdH5owX9A7C1199WKx7AA5rmmUlAXMOZneCDXEDArYnqM2KK4DlFIQCRWQXypCPjePMSXPpxRPsX6Axbz%2FhUvDjzXpfqwSiFBuPbMp4kmFrge5vBWNBP5%2FJ6pDLc0FZqJbm%2BumuDLgnaygS5oNTnUF7pXJDPIkt4uSBbUrKCX54uU34IUr4uQlmA1JZ9FkQ3E6Mh2iVpqr9XlC7S0FZQUZa900pmSkpkfxdzUR2dVzHNSQzVuuLYUf%2BvUj1RYRkNjkHVcSSJEv0uEZ1I3UuKAAA%2FQCxkQcLBSbWha%2Fi8Fp0RWdrnYI5WmMKR%2BcJXCbvOH6nTvibIL9fVJ%2B8pHmr6YGpmeiVrnfcegkli5CKbskRPuV1fFE%2FH4FntbZauaKMoiuWxBNIpE5EgS3dCLPVIMY4JivN91%2BY0rypi%2B525H3PXzq0nza2gDMcubvuzVM0MfYk4NcqqBDZ7iwTXTUSH9KY57ieqossVhODeRMSxPlbDxSFTELPuc15Bp8kZJZXANMPfefCfwT8Uuk7jwUM5XxGZT%2B8hbJtuSAuXDQ4mK06TTXEUOw3oO0S94WThJovPguypTvfEhf8kSemwsTFIQimPDzBUToSjzWYHH4inlLZWy2qcwytKEbayC%2FVjZRsSTMKKkbhU0KKKbdcoqQYyi7wKuEcCo0sFa0Lcq2LqqbpkqHcGQkw20B%2FoanIxIFoDYJq%2BnKIiwakVGz8Cz0JYGoiBPmmgp6bUadjamol4hmsp3ZrSjV3UNqzRlVrmB3aVHENrB0cJxViDWuMsWOWs4X%2BcMJo%2BL%2B4RY5%2BqdwZNflImCkeLkMG46UwiFSiMXKL5TwCCfM17iJY39puklQuqNzxIRYeel4Rz%2F%2FMSN1wF4oDsHqUmcvhqx4mCmxUCMhi4tMhCEdD0Dd3m43OvBHv5PWP6vfG8Kux%2FQhN0VxbiA3aoDfdSiec%2Fi%2FWmPvbXqXa15XO0eZzk1%2FLrpKC8G%2BsS%2FI5evKzBLqdsJYioTOcgty5QY9Ciyy4aLaevSwRBW8LNkwecGdfJQMEU00zor7GltsUMpH45uViOlBkPFfrGzE%2BRWg5ynO95irU2peCZbbDU2uGpqvNiVS5PTlw3%2FTe3KtpRw0ZZzDO%2FarqzKGHNMeKoVW2Ut4EpILuoihvrCNpF377cDSW8CBZHairQ0HKrQYwBsZwVRBKlKy6CJVB1NfoptV2y3gIVkLtHG660yCTmzkMD4kWIBVbfzcwtEwJBKUtpQ5haWDFzULay9yxtmOU3oaUeeLWbZI3yPeT%2BW7yogYxSXKqOH5e%2F3h8ETxRQpdjv4oiLGzKoOr5vaXgFGg6TJOwYYg03JeB4Aw1Y5rlfH4b7B4FoyEB%2FQTx7wKFsqbFZuAE2Cj2icsqHx8GTxQ%2B9r79Wb5KpQ0ZI%2BzN9R8jOaU%2FpH1WOts6WmKI1l4PAR2PyHoVvqoayP5T2G8WDYxAdEVCD6w6iZm5Xxwscwlk3m5tj5bIN5eX3Y89jNWDgrpI3UAZBxOYKTVdH5%2FwapYo5dGPmIifCV1G1%2FTtM4W2co2XZKS%2FGaNU6OunhNxRBlnYRDqc6bPLWxy41lkwUv4sLfxprfOlz%2FshAuC%2BFNLYTXnc2oD1heGU4slODcmlQbKIxn2ftNd1CmAfNjn7hdFnyB28pSxN1Zm0Qqt6AmO1JksfKMt66KLN5ZugL7BOMbm7Zywz1DxHgDpynLTsuNgRrmHT%2BRPLNZ6mGCjX0%2FYOZBgsZGKIh8SHj77I2C1czJ9J1a5YSRjhfa8spgMU%2BHjuwhta%2BSJAtY5A3LfMtMhBOYPkGa3Iz7Q3moDnWZarMYBeIWdbpW2IJ67g89vjUSf5NzvXjPGZZZuyjE6azquUu75EI%2Bm%2FEb%2Bfgpk6jjNloxcb%2BGZ%2FHFhWPLHMumqz4e8TyIwdm3NvzjjfglHCnuQZU531K5JYyd5YS0Dx5bmEO%2Bs%2FFLXNJ%2FbKM%2Fr5UzS9ptrnVe0n9c0n%2FwMnHwfJzR2L7Wer7btA5VzKepi1qb1TV2pEv%2BjWOZKHbUbA%2FTVEqakIqDWct6FOXnD22dDCQLwvsAlPMWlF5dSlZhNk8bgSIYAiIf5lHaNXt2N83iCarpyEEzR%2BS%2FDpMholgjBvN7jPFAkNQT%2FaF0yy6%2FYTWfAMYhNXSK8UjDBy%2Bc36%2BaVw8L9NBLMcgbf7gizDGezGGXPQvj7qPRDcwyTcXf7fJfKDWXHWfEsK0ChD2zjBi5ylTUCJS5%2BlrKiHEB8LsD8Be0rnzZBa1X0XqMnsgVcN0VHS4htg1805e12tpaPU814lQxuexWq4XifAw1mE%2FKvVd8z8Iro61ioxiWQBCUHqSBXZtjsR1gLOd8MFZfymY%2B6Fcxlt5XxQZskc1cAbEaWq%2BP4HBYntm8q%2FU0Pf94EUtvblrrEpwrv2ZUO4Fr81UJa%2FqxnEwbyp9kHsqxI41znlmVpgypqR2fTrObfM%2F83I8iyl9B0OQjhFvnuNP0PU%2B36sjOG4lFusQYNYt2oDaykTLlwKujKbZ1sW9Cr9W%2B92%2BTFGB1gMRp8AgN8bF0%2FBORw4v%2FAgG1prY54pN348uSaajARqalkLE7O10oMNcBvfjDTal46l78hjNTf7rwsomcySZSyEnaEZn7qjkPVwTtvTH56RgSsjMUBvyhSoDqO8ux5qgCz%2FcqQZ2N6XjqEvTiRrnEQSnfc%2FGsHMqzUkg9tg%2BKXIz%2F%2BzP%2BrzH718GSzT7LIwWjwGACXXe7%2BAwpJuN0QjGcXYdirD91uM9gjNoPzxc9BQNdgUz2%2BXkSp0GCv4PZbtda9Z2mX6HYj5FXzq%2B0%2FNTtpkZe%2BQiqbtr7%2FZKJo%2FqSyVvTz0XGuSCAKH7plXJ2n6NCzva6AAaYGmMv73v5ewMHse1ubMKFzxGKUzGmDv20LqKiYEL%2BwSg6fvFoDt%2BfICDBrZhUZHCALg0WQUNz9LLUs730mTRCPs5LUvbeAZIR9zfL8av4qu%2FMi2liefosCv0X2tLUz1yW%2BNaHj4D2iiyKXp2J4%2BDH3N6gjcVyJMFqW4ptWVcdNtuhkaWBu37HRhZnU0JejCwXI8vFyHIxsuzGyDLOIh8B955suK11%2BxQ%2FsXz5%2FPQmpqsg81MPb3YE1GM8F1CT0ukQiXS5VRIVILrH2yA2rY5VgfoU4JZtWheiEaLd57aupTXwQraVZMvDqctUW2dDXUc49aD2YLcc7NhueUThzQPZgmWL2JwC0O%2BrTGi6HM%2B4U6tlg6zhe41v1vROKb7Z6TudvcY3CwXuSCyh5qAckqw72356wzLllmQ1fGtL6EUFPPgRqHPT965vPt98v7lofOUDiysOWF2c7fsHPMxzeS6OWtOUIE9fAXl0ra%2FYLHd0pOtT3P%2FLmt7e3E7swZ%2B%2FPk%2FTu19Btxov%2B7cQW7L3Qbg82Ed9Ysi%2BYptkQQDowGkl6Rkfgkfi2pBAVBnyqGalwAZtmOflL%2BDpqk%2FUOCr8uYV1vkPOSqO0iBfwoBZfaEyGefN%2F), which outlines the stages where the JamAI API is used. Alternatively, the same flow is documented below.
+
+## Overview and Details
+
+### JamAIBase Language for Ai-Town:
+- **Conversation Table**: An agent that uses LLMs to generate text during interactions.
+- **Chat Table**: A chat template containing configurations necessary for a conversation agent. All conversation tables/conversation agents are a subset of chat tables and inherit the chat template defined.
+- **Knowledge Table**: A repository of text containing the chat agent's memory of past conversations or backstory.
+
+The JamAI API is defined in [./convex/aiTown/JamAIBaseAPi.ts](./convex/aiTown/JamAIBaseAPi.ts). More information and examples can be found in our documentation [here](https://docs.jamaibase.com/).
+
+## JamAI API Usage
+
+### On Game Initialization
+In [./convex/aiTown/agentInputs.ts](./convex/aiTown/agentInputs.ts), for each agent in [data/characters.ts](data/characters.ts), a `chat table` and a `knowledge table` are created.
+- Retrieval augmented generation (RAG) is enabled for every chat table, and the default embedding model is `infinity/BAAI/bge-m3`.
+
+### The Start of a Conversation
+In [./convex/agent/conversation.ts](./convex/agent/conversation.ts), when two agents obtain the conversation lock, a `conversation table` is created.
+- For example, a conversation between Bob and Stella will create a `Conversation Table` named `Bob-Stella` under `Chat Table Bob`, and `Stella-Bob` under `Chat Table Stella`. Bob will use `Bob-Stella` to converse with Stella, and Stella will use `Stella-Bob` to converse with Bob.
+- All conversation agents inherit the template or configurations defined in their chat tables.
+- All conversation agents read from their chat table's knowledge table, which serves as the memory and knowledge reference for the conversation agent.
+
+### During a Conversation
+In [./convex/agent/conversation.ts](./convex/agent/conversation.ts), when Stella wants to chat with Bob, Stella will request a [chatCompletion](./convex/util/llm.ts), containing relevant details such as Bob's last reply, Stella's backstory, and any relevant prompts. This applies vice versa for Bob. The API is also called in the following methods:
+- **startConversationMessage**: Only one conversation agent may start a conversation at a time. The initiating agent receives different prompts.
+- **continueConversationMessage**: When continuing a conversation, both agents receive the same instructions, with the partner's most recent reply attached to formulate a response.
+- **leaveConversationMessage**: Only one conversation agent may choose to release the conversation lock and leave a conversation, prompting the LLM for a leaving message.
+
+### After a Conversation
+In [./convex/agent/memory.ts](./convex/agent/memory.ts), an agent rejects all conversation requests as it invokes [rememberConversation](./convex/agent/memory.ts). During this state, the conversation agent generates a summary of the conversation, including details about how they felt and what they hope to do during the next conversation. This summary is added as a row to the conversation table but is not visible to the other party.
+- Upon summary completion, the agent checks if a token threshold has been exceeded using the [getTotalTokens](./convex/util/llm.ts) method. If it has, the agent will invoke [dumpConversationTable](./convex/agent/conversation.ts) to transfer the conversation to its respective knowledge table.
+- During future conversations, agents may bring up "memories" of previous interactions due to utilizing RAG on their memory repository to formulate responses.
+
+Note: There are some unused functions in `./convex/agent/memory.ts` and `./convex/agent/conversation.ts`. These functions were originally used by Ai-Town for local RAG features and chat completions. With the integration of JamAI Base, serverless functions now handle the overhead and implementation complexity of retrieval, embeddings and black magic! This allows you to scale with the entire convex backend using minimal code!
+
+## Starting Points
+
+### [agent.ts](./convex/aiTown/agent.ts)
+A class representing a singular agent. All implementations providing an agent with new abilities or features should be placed here. You can also add properties to the agent object for easy access during runtime. Note that an agent is a subset of a player. All agents are players, but not all players are agents. See [player.ts](./convex/aiTown/player.ts).
+
+### [agentInput.ts](./convex/aiTown/agentInputs.ts)
+Changes in an agent's state, from initialization to operations to deletion, all begin here and propagate downwards to [agentOperations.ts](./convex/aiTown/agentOperations.ts), [conversation.ts](./convex/agent/conversation.ts), and so on. For example, you may want to change the chat agent's system prompt and template.
+
+### [agent/conversation.ts](./convex/agent/conversation.ts)
+All functions related to a single agent's ability to converse are placed here. Note that every agent uses its own `conversation.ts` to carry out actions. This is different from `aiTown/conversation.ts`, which handles the implementation of conversations between two agents.
+
+### [memory.ts](./convex/agent/memory.ts)
+All implementations regarding an agent's memory are placed here. This file is useful for adding features that trigger after a conversation has ended and the conversation lock has been released.
+
+### [llm.ts](./convex/util/llm.ts)
+The innermost layer of all LLM operations. You may process input and outputs here before sending them to our servers or other servers based on the scenario. Otherwise, `agent/conversation.ts` is a good starting point.
+
+### [JamAIBaseAPi.ts](./convex/aiTown/JamAIBaseAPi.ts)
+Contains the JamAI API implementation. Adjust the parameters here to suit your Ai-Town setup. Ensure the configurations for creating a chat table are consistent for both `createAgentChatTable` and `configureAgentChatTable` to avoid conflicts.
+
+### [characters.ts](./data/characters.ts)
+All agents are created based on this file. Adding characters here will reflect in the JamAI dashboard. Characters are reinitialized only when you `wipeAllTables` and initiate a new world. In [agentInput.ts](./convex/aiTown/agentInputs.ts), the character's identity and plans are passed into the chat table's system prompt and as a row in the chat table, reinforcing the conversation agent's identity during text generation.
+
+**Note:** Be careful when changing the schema, such as adding new fields to the agent class. Convex may break, causing SQLite database read and write errors or timeouts. Deleting the `.sqlite` file in your convex backend folder often resolves these issues. Running the convex backend with `./convex-backend` or `just run-local-backend` may slow down over time despite multiple `wipeAllTables` operations due to the residual data! Deleting the `.sqlite` folder helps to thoroughly clean it.
+
+## Viewing the JaMagic
+
+After you're done setting up Ai-Town and running it, you can go to [WIP](https://cloud.jamaibase.com/project). Here, you'll find that the chat agents and knowledge tables were automatically created for you!
+
+In your console logs, when you see a log stating "agent X starting conversation with agent Y", you'll notice that the conversation tables were created with identical configurations under their respective chat agents. You can open the X-Y and Y-X conversation tables side by side and watch as the rows automatically fill up during the conversation.
+
+As the conversation progresses and the token threshold nearly exceeds the model's context length, our integration will automatically dump the memory into the knowledge table. You can now ask agent X what it thinks of agent Z, and the conversation agent will provide an accurate description of its interactions with Z!
+
+# Good luck!
