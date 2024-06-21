@@ -200,19 +200,21 @@ node data/convertMap.js <mapDataPath> <assetPath> <tilesetpxw> <tilesetpxh>
 4. Change the background music by modifying the prompt in `convex/music.ts`
 5. Change how often to generate new music at `convex/crons.ts` by modifying the `generate new background music` job
 
-## Using JamAi Base and Convex Cloud. (WIP - For now just do things locally as already provided in the code.)
+## Using JamAi Base and Convex Cloud. 
 
 Configure [`convex/aiTown/JamAIBaseAPi.ts`](./convex/aiTown/JamAIBaseAPi.ts) directly (recommended) and set the env variables:
 
 ```sh
 # Local Convex
 just convex env set JAMAI_API_KEY # jam ai api key
+just convex env set JAMAI_PROJECT_ID # your jamai project id, obtained from the dashboard or an api response.
 just convex env set JAMAI_USERNAME # username
 just convex env set JAMAI_PASSWORD # password
 # Cloud Convex
 npx convex env set JAMAIAPI_KEY # jam ai api key
 npx convex env set JAMAI_USERNAME # username
 npx convex env set JAMAI_PASSWORD # password
+npx convex env set JAMAI_PROJECT_ID # your jamai project id, obtained from the dashboard or an api response.
 ``` 
 
 The embeddings model config needs to be changed [in code](./convex/util/llm.ts),
@@ -222,7 +224,7 @@ since you need to specify the embeddings dimension.
 For JamAI, visit https://cloud.jamaibase.com/organization/secrets
 For OpenAI, visit https://platform.openai.com/account/api-keys
 
-## Using hosted Convex (WIP - Does not support convex cloud for now.)
+## Using hosted Convex
 
 You can run your Convex backend in the cloud by just running
 
