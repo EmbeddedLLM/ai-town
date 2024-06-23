@@ -211,7 +211,7 @@ just convex env set JAMAI_PROJECT_ID # your jamai project id, obtained from the 
 just convex env set JAMAI_USERNAME # username
 just convex env set JAMAI_PASSWORD # password
 # Cloud Convex
-npx convex env set JAMAIAPI_KEY # jam ai api key
+npx convex env set JAMAI_API_KEY # jam ai api key
 npx convex env set JAMAI_USERNAME # username
 npx convex env set JAMAI_PASSWORD # password
 npx convex env set JAMAI_PROJECT_ID # your jamai project id, obtained from the dashboard or an api response.
