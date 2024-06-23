@@ -202,7 +202,7 @@ node data/convertMap.js <mapDataPath> <assetPath> <tilesetpxw> <tilesetpxh>
 
 ## Using JamAi Base and Convex Cloud. 
 
-Configure [`convex/aiTown/JamAIBaseAPi.ts`](./convex/aiTown/JamAIBaseAPi.ts) directly (recommended) and set the env variables:
+Configure [`convex/aiTown/JamAIBaseAPi.ts`](./convex/aiTown/JamAIBaseAPi.ts) directly (recommended) and set the env variables.
 You may first create a project called `Ai-Town` or any other suitable names in [`https://cloud.jamaibase.com/project`](https://cloud.jamaibase.com/project), and copy the project id to set into your environment variables.
 ```sh
 # Local Convex
