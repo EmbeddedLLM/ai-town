@@ -11,7 +11,7 @@ You can find the JamAI integrated program flow [here](https://viewer.diagrams.ne
 - **Chat Table**: A chat template containing configurations necessary for a conversation agent. All conversation tables/conversation agents are a subset of chat tables and inherit the chat template defined.
 - **Knowledge Table**: A repository of text containing the chat agent's memory of past conversations or backstory.
 
-The JamAI API is defined in [`./convex/aiTown/JamAIBaseAPi.ts`](./convex/aiTown/JamAIBaseAPi.ts). More information and examples can be found in our documentation [here](https://docs.jamaibase.com/).
+The JamAI API is integrated in [`./convex/aiTown/JamAIBaseAPi.ts`](./convex/aiTown/JamAIBaseAPi.ts). More information and examples can be found in our documentation [here](https://docs.jamaibase.com/).
 
 ## JamAI API Usage
 
