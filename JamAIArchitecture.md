@@ -11,61 +11,61 @@ You can find the JamAI integrated program flow [here](https://viewer.diagrams.ne
 - **Chat Table**: A chat template containing configurations necessary for a conversation agent. All conversation tables/conversation agents are a subset of chat tables and inherit the chat template defined.
 - **Knowledge Table**: A repository of text containing the chat agent's memory of past conversations or backstory.
 
-The JamAI API is defined in [./convex/aiTown/JamAIBaseAPi.ts](./convex/aiTown/JamAIBaseAPi.ts). More information and examples can be found in our documentation [here](https://docs.jamaibase.com/).
+The JamAI API is defined in [`./convex/aiTown/JamAIBaseAPi.ts`](./convex/aiTown/JamAIBaseAPi.ts). More information and examples can be found in our documentation [here](https://docs.jamaibase.com/).
 
 ## JamAI API Usage
 
 ### On Game Initialization
-In [./convex/aiTown/agentInputs.ts](./convex/aiTown/agentInputs.ts), for each agent in [data/characters.ts](data/characters.ts), a `chat table` and a `knowledge table` are created.
+In [`./convex/aiTown/agentInputs.ts`](./convex/aiTown/agentInputs.ts), for each agent in [`data/characters.ts`](data/characters.ts), a `chat table` and a `knowledge table` are created.
 - Retrieval augmented generation (RAG) is enabled for every chat table, and the default embedding model is `infinity/BAAI/bge-m3`.
 
 ### The Start of a Conversation
-In [./convex/agent/conversation.ts](./convex/agent/conversation.ts), when two agents obtain the conversation lock, a `conversation table` is created.
+In [`./convex/agent/conversation.ts](./convex/agent/conversation.ts`), when two agents obtain the conversation lock, a `conversation table` is created.
 - For example, a conversation between Bob and Stella will create a `Conversation Table` named `Bob-Stella` under `Chat Table Bob`, and `Stella-Bob` under `Chat Table Stella`. Bob will use `Bob-Stella` to converse with Stella, and Stella will use `Stella-Bob` to converse with Bob.
 - All conversation agents inherit the template or configurations defined in their chat tables.
 - All conversation agents read from their chat table's knowledge table, which serves as the memory and knowledge reference for the conversation agent.
 
 ### During a Conversation
-In [./convex/agent/conversation.ts](./convex/agent/conversation.ts), when Stella wants to chat with Bob, Stella will request a [chatCompletion](./convex/util/llm.ts), containing relevant details such as Bob's last reply, Stella's backstory, and any relevant prompts. This applies vice versa for Bob. The API is also called in the following methods:
+In [`./convex/agent/conversation.ts`](./convex/agent/conversation.ts), when Stella wants to chat with Bob, Stella will request a [`chatCompletion`](./convex/util/llm.ts), containing relevant details such as Bob's last reply, Stella's backstory, and any relevant prompts. This applies vice versa for Bob. The API is also called in the following methods:
 - **startConversationMessage**: Only one conversation agent may start a conversation at a time. The initiating agent receives different prompts.
 - **continueConversationMessage**: When continuing a conversation, both agents receive the same instructions, with the partner's most recent reply attached to formulate a response.
 - **leaveConversationMessage**: Only one conversation agent may choose to release the conversation lock and leave a conversation, prompting the LLM for a leaving message.
 
 ### After a Conversation
-In [./convex/agent/memory.ts](./convex/agent/memory.ts), an agent rejects all conversation requests as it invokes [rememberConversation](./convex/agent/memory.ts). During this state, the conversation agent generates a summary of the conversation, including details about how they felt and what they hope to do during the next conversation. This summary is added as a row to the conversation table but is not visible to the other party.
-- Upon summary completion, the agent checks if a token threshold has been exceeded using the [getTotalTokens](./convex/util/llm.ts) method. If it has, the agent will invoke [dumpConversationTable](./convex/agent/conversation.ts) to transfer the conversation to its respective knowledge table.
+In [`./convex/agent/memory.ts`](./convex/agent/memory.ts), an agent rejects all conversation requests as it invokes [`rememberConversation`](./convex/agent/memory.ts). During this state, the conversation agent generates a summary of the conversation, including details about how they felt and what they hope to do during the next conversation. This summary is added as a row to the conversation table but is not visible to the other party.
+- Upon summary completion, the agent checks if a token threshold has been exceeded using the [`getTotalTokens`](./convex/util/llm.ts) method. If it has, the agent will invoke [`dumpConversationTable`](./convex/agent/conversation.ts) to transfer the conversation to its respective knowledge table.
 - During future conversations, agents may bring up "memories" of previous interactions due to utilizing RAG on their memory repository to formulate responses.
 
 Note: There are some unused functions in `./convex/agent/memory.ts` and `./convex/agent/conversation.ts`. These functions were originally used by Ai-Town for local RAG features and chat completions. With the integration of JamAI Base, serverless functions now handle the overhead and implementation complexity of retrieval, embeddings and black magic! This allows you to scale with the entire convex backend using minimal code!
 
 ## Starting Points
 
-### [agent.ts](./convex/aiTown/agent.ts)
-A class representing a singular agent. All implementations providing an agent with new abilities or features should be placed here. You can also add properties to the agent object for easy access during runtime. Note that an agent is a subset of a player. All agents are players, but not all players are agents. See [player.ts](./convex/aiTown/player.ts).
+### [`agent.ts`](./convex/aiTown/agent.ts)
+A class representing a singular agent. All implementations providing an agent with new abilities or features should be placed here. You can also add properties to the agent object for easy access during runtime. Note that an agent is a subset of a player. All agents are players, but not all players are agents. See [`player.ts`](./convex/aiTown/player.ts).
 
-### [agentInput.ts](./convex/aiTown/agentInputs.ts)
-Changes in an agent's state, from initialization to operations to deletion, all begin here and propagate downwards to [agentOperations.ts](./convex/aiTown/agentOperations.ts), [conversation.ts](./convex/agent/conversation.ts), and so on. For example, you may want to change the chat agent's system prompt and template.
+### [`agentInput.ts`](./convex/aiTown/agentInputs.ts)
+Changes in an agent's state, from initialization to operations to deletion, all begin here and propagate downwards to [`agentOperations.ts`](./convex/aiTown/agentOperations.ts), [`conversation.ts`](./convex/agent/conversation.ts), and so on. For example, you may want to change the chat agent's system prompt and template.
 
-### [agent/conversation.ts](./convex/agent/conversation.ts)
+### [`agent/conversation.ts`](./convex/agent/conversation.ts)
 All functions related to a single agent's ability to converse are placed here. Note that every agent uses its own `conversation.ts` to carry out actions. This is different from `aiTown/conversation.ts`, which handles the implementation of conversations between two agents.
 
-### [memory.ts](./convex/agent/memory.ts)
+### [`memory.ts`](./convex/agent/memory.ts)
 All implementations regarding an agent's memory are placed here. This file is useful for adding features that trigger after a conversation has ended and the conversation lock has been released.
 
-### [llm.ts](./convex/util/llm.ts)
+### [`llm.ts`](./convex/util/llm.ts)
 The innermost layer of all LLM operations. You may process input and outputs here before sending them to our servers or other servers based on the scenario. Otherwise, `agent/conversation.ts` is a good starting point.
 
-### [JamAIBaseAPi.ts](./convex/aiTown/JamAIBaseAPi.ts)
+### [`JamAIBaseAPi.ts`](./convex/aiTown/JamAIBaseAPi.ts)
 Contains the JamAI API implementation. Adjust the parameters here to suit your Ai-Town setup. Ensure the configurations for creating a chat table are consistent for both `createAgentChatTable` and `configureAgentChatTable` to avoid conflicts.
 
-### [characters.ts](./data/characters.ts)
-All agents are created based on this file. Adding characters here will reflect in the JamAI dashboard. Characters are reinitialized only when you `wipeAllTables` and initiate a new world. In [agentInput.ts](./convex/aiTown/agentInputs.ts), the character's identity and plans are passed into the chat table's system prompt and as a row in the chat table, reinforcing the conversation agent's identity during text generation.
+### [`characters.ts`](./data/characters.ts)
+All agents are created based on this file. Adding characters here will reflect in the JamAI dashboard. Characters are reinitialized only when you `wipeAllTables` and initiate a new world. In [`agentInput.ts`](./convex/aiTown/agentInputs.ts), the character's identity and plans are passed into the chat table's system prompt and as a row in the chat table, reinforcing the conversation agent's identity during text generation.
 
 **Note:** Be careful when changing the schema, such as adding new fields to the agent class. Convex may break, causing SQLite database read and write errors or timeouts. Deleting the `.sqlite` file in your convex backend folder often resolves these issues. Running the convex backend with `./convex-backend` or `just run-local-backend` may slow down over time despite multiple `wipeAllTables` operations due to the residual data! Deleting the `.sqlite` folder helps to thoroughly clean it.
 
 ## Viewing the JaMagic
 
-After you're done setting up Ai-Town and running it, you can go to [https://cloud.jamaibase.com/project](https://cloud.jamaibase.com/project). After clicking on your project, you'll find that the chat agents and knowledge tables were automatically created for you!
+After you're done setting up Ai-Town and running it, you can go to [`https://cloud.jamaibase.com/project`](https://cloud.jamaibase.com/project). After clicking on your project, you'll find that the chat agents and knowledge tables were automatically created for you!
 
 In your console logs, when you see a log stating "agent X starting conversation with agent Y", you'll notice that the conversation tables were created with identical configurations under their respective chat agents. You can open the X-Y and Y-X conversation tables side by side and watch as the rows automatically fill up during the conversation.
 
