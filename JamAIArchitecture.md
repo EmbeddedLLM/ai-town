@@ -20,7 +20,7 @@ In [`./convex/aiTown/agentInputs.ts`](./convex/aiTown/agentInputs.ts), for each 
 - Retrieval augmented generation (RAG) is enabled for every chat table, and the default embedding model is `infinity/BAAI/bge-m3`.
 
 ### The Start of a Conversation
-In [`./convex/agent/conversation.ts](./convex/agent/conversation.ts`), when two agents obtain the conversation lock, a `conversation table` is created.
+In [`./convex/agent/conversation.ts`](./convex/agent/conversation.ts), when two agents obtain the conversation lock, a `conversation table` is created.
 - For example, a conversation between Bob and Stella will create a `Conversation Table` named `Bob-Stella` under `Chat Table Bob`, and `Stella-Bob` under `Chat Table Stella`. Bob will use `Bob-Stella` to converse with Stella, and Stella will use `Stella-Bob` to converse with Bob.
 - All conversation agents inherit the template or configurations defined in their chat tables.
 - All conversation agents read from their chat table's knowledge table, which serves as the memory and knowledge reference for the conversation agent.
