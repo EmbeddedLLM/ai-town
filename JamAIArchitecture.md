@@ -65,7 +65,7 @@ All agents are created based on this file. Adding characters here will reflect i
 
 ## Viewing the JaMagic
 
-After you're done setting up Ai-Town and running it, you can go to [WIP](https://cloud.jamaibase.com/project). Here, you'll find that the chat agents and knowledge tables were automatically created for you!
+After you're done setting up Ai-Town and running it, you can go to [https://cloud.jamaibase.com/project](https://cloud.jamaibase.com/project). After clicking on your project, you'll find that the chat agents and knowledge tables were automatically created for you!
 
 In your console logs, when you see a log stating "agent X starting conversation with agent Y", you'll notice that the conversation tables were created with identical configurations under their respective chat agents. You can open the X-Y and Y-X conversation tables side by side and watch as the rows automatically fill up during the conversation.
 
